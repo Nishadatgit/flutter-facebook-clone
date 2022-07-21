@@ -1,9 +1,13 @@
+import 'package:facebook_clone/components/create_post_section.dart';
 import 'package:facebook_clone/config/color_palette.dart';
+import 'package:facebook_clone/data/data.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+
+import '../components/rooms_area.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -50,10 +54,14 @@ class HomeScreen extends StatelessWidget {
               )
             ],
           ),
-          SliverToBoxAdapter(
-            child: Container(
-              height: 100,
-              color: Colors.red,
+          const SliverToBoxAdapter(
+              child: CreatePostSection(
+            currentUser: currentUser,
+          )),
+          const SliverPadding(
+            padding: EdgeInsets.only(left: 0, top: 10, right: 0, bottom: 5),
+            sliver: SliverToBoxAdapter(
+              child: RoomsArea(onlineusers: onlineUsers),
             ),
           )
         ],

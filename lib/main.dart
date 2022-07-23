@@ -1,5 +1,6 @@
 import 'package:facebook_clone/config/color_palette.dart';
 import 'package:facebook_clone/screens/home_screen.dart';
+import 'package:facebook_clone/screens/main_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Facebook Clone',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(scaffoldBackgroundColor: Palette.scaffold),
-      home: const HomeScreen(),
+      home: const MainScreen(),
     );
   }
 }

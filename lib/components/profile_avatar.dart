@@ -3,18 +3,27 @@ import 'package:facebook_clone/config/color_palette.dart';
 import 'package:flutter/material.dart';
 
 class ProfileAvatar extends StatelessWidget {
-  const ProfileAvatar({Key? key, required this.imageurl, this.isActive = false})
+  const ProfileAvatar(
+      {Key? key,
+      required this.imageurl,
+      this.isActive = false,
+      this.hasBorder = false})
       : super(key: key);
   final String imageurl;
   final bool isActive;
+  final bool hasBorder;
   @override
   Widget build(BuildContext context) {
     return Stack(
       children: [
         CircleAvatar(
+          backgroundColor: Palette.facebookBlue,
           radius: 20,
-          backgroundColor: Colors.grey[200],
-          backgroundImage: CachedNetworkImageProvider(imageurl),
+          child: CircleAvatar(
+            radius: hasBorder ?17:20,
+            backgroundColor: Colors.grey[200],
+            backgroundImage: CachedNetworkImageProvider(imageurl),
+          ),
         ),
         isActive
             ? Positioned(

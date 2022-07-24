@@ -1,8 +1,7 @@
 import 'package:facebook_clone/components/profile_avatar.dart';
 import 'package:facebook_clone/models/user_model.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
+
 
 class UserCard extends StatelessWidget {
   const UserCard({Key? key, required this.user}) : super(key: key);
@@ -19,9 +18,12 @@ class UserCard extends StatelessWidget {
           const SizedBox(
             width: 6,
           ),
-          Text(
-            user.name,
-            style: const TextStyle(fontSize: 16),
+          Flexible(
+            child: Text(
+              user.name,
+              overflow: TextOverflow.ellipsis,
+              style: const TextStyle(fontSize: 16),
+            ),
           )
         ],
       ),
